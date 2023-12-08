@@ -358,6 +358,11 @@ where
                 ) => rg_end.cmp(range_end),
             })
     }
+
+    /// Get current ranges slice
+    pub fn get_ranges(&self) -> &[(Bound<K>, Bound<K>)] {
+        &self.ranges
+    }
 }
 
 impl<K, R> FromIterator<R> for MergedRange<K>
