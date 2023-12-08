@@ -281,6 +281,27 @@ where
         }
     }
 
+    /// Returns the range that key is contained in one of the range set.
+    #[inline]
+    pub fn contains_with_range(&self, key: &K) -> Option<&(Bound<K>, Bound<K>)> {
+        let idx = self.binary_search_start(&(Bound::Included(key), Bound::Unbounded));
+        match idx {
+            Ok(idx) => Some(&self.ranges[idx]),
+            Err(idx) => {
+                if idx > 0 {
+                    let idx = idx.overflow_sub(1);
+                    if self.ranges[idx].contains(key) {
+                        Some(&self.ranges[idx])
+                    } else {
+                        None
+                    }
+                } else {
+                    None
+                }
+            }
+        }
+    }
+
     /// Returns `true` if `range` is contained in the range set
     #[inline]
     pub fn contains_range<R>(&self, range: &R) -> bool
