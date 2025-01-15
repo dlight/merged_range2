@@ -1,4 +1,4 @@
-//! `merged_range`
+//! `merged_range2`
 #![deny(
     // The following are allowed by default lints according to
     // https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html
@@ -18,7 +18,6 @@
     non_ascii_idents,
     // non_exhaustive_omitted_patterns, unstable
     noop_method_call,
-    pointer_structural_match,
     rust_2021_incompatible_closure_captures,
     rust_2021_incompatible_or_patterns,
     rust_2021_prefixes_incompatible_syntax,
@@ -130,7 +129,7 @@ use crate::{merge::BoundMerge, remove_n::RemoveN};
 ///
 /// ```
 /// use std::ops::Bound;
-/// use merged_range::MergedRange;
+/// use merged_range2::MergedRange;
 ///
 /// let mut mr = MergedRange::new();
 /// mr.insert_range(&(0..10));

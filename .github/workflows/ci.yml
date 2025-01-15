@@ -1,7 +1,7 @@
 name: CI
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   outdated:
@@ -19,13 +19,13 @@ jobs:
     name: Audit
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        crate: cargo-audit
-        use-tool-cache: true
-    - uses: actions-rs/audit-check@v1.2.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          crate: cargo-audit
+          use-tool-cache: true
+      - uses: actions-rs/audit-check@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   check:
     name: Check
