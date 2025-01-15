@@ -1,6 +1,6 @@
 [package]
 authors = ["DatenLord <dev@datenlord.io>"]
-categories = ["tools"]
+categories = ["algorithms", "data-structures"]
 description = "rangeset that can merge overlapping ranges (fork of merged_range)"
 edition = "2021"
 keywords = ["overlap", "range", "merge", "rangeset"]
