@@ -1,4 +1,4 @@
-Note: this crate is a fork of the original [merged_range](https://github.com/datenlord/merged_range) crate, which is not maintained anymore. More details in the issue #1.
+Note: this crate is a fork of the original [merged_range](https://github.com/datenlord/merged_range) crate, which is not maintained anymore. More details in the issue [#1](https://github.com/dlight/merged_range2/issues/1).
 
 # merged_range2
 
