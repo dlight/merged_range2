@@ -6,14 +6,15 @@ A crate that can merge overlapping ranges.
 
 [![Apache licensed][apache-badge]][apache-url]
 [![crates.io][crates-badge]][crate-url]
-![docs.rs][docs-url]
+[![docs.rs][docs-badge]][docs-url]
 [![CI][actions-badge]][actions-url]
 
 [apache-badge]: https://img.shields.io/badge/license-Apache-blue.svg
 [apache-url]: https://github.com/dlight/merged_range2/blob/master/LICENSE
 [crates-badge]: https://img.shields.io/crates/v/merged_range2.svg
 [crate-url]: https://crates.io/crates/merged_range2
-[docs-url]: https://img.shields.io/docsrs/merged_range2
+[docs-badge]: https://img.shields.io/docsrs/merged_range2
+[docs-url]: https://docs.rs/merged_range2
 [actions-badge]: https://github.com/dlight/merged_range2/actions/workflows/ci.yml/badge.svg
 [actions-url]: https://github.com/dlight/merged_range2/actions/workflows/ci.yml
 
