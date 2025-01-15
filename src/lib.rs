@@ -226,7 +226,7 @@ where
                 }
             }
             (Err(l_idx), Err(r_idx)) => {
-                remove_len = r_idx.wrapping_sub(l_idx);
+                remove_len = r_idx.overflow_sub(l_idx);
                 remove_start = l_idx;
                 if l_idx > 0 {
                     match (
