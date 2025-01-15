@@ -227,7 +227,7 @@ where
                 }
             }
             (Err(l_idx), Err(r_idx)) => {
-                remove_len = r_idx.overflow_sub(l_idx);
+                remove_len = r_idx.wrapping_sub(l_idx);
                 remove_start = l_idx;
                 if l_idx > 0 {
                     match (
@@ -276,6 +276,27 @@ where
                     self.ranges[idx.overflow_sub(1)].contains(key)
                 } else {
                     false
+                }
+            }
+        }
+    }
+
+    /// Returns the range that key is contained in one of the range set.
+    #[inline]
+    pub fn contains_with_range(&self, key: &K) -> Option<&(Bound<K>, Bound<K>)> {
+        let idx = self.binary_search_start(&(Bound::Included(key), Bound::Unbounded));
+        match idx {
+            Ok(idx) => Some(&self.ranges[idx]),
+            Err(idx) => {
+                if idx > 0 {
+                    let idx = idx.overflow_sub(1);
+                    if self.ranges[idx].contains(key) {
+                        Some(&self.ranges[idx])
+                    } else {
+                        None
+                    }
+                } else {
+                    None
                 }
             }
         }
@@ -367,6 +388,11 @@ where
     /// Returns an iterator that allows modifying each value.
     pub fn iter_mut<'a>(&'a mut self) -> std::slice::IterMut<'a, (Bound<K>, Bound<K>)> {
         self.ranges.iter_mut()
+    }
+
+    /// Get current ranges slice
+    pub fn get_ranges(&self) -> &[(Bound<K>, Bound<K>)] {
+        &self.ranges
     }
 }
 
